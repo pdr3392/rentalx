@@ -1,20 +1,10 @@
 import { Router } from "express";
-import { SpecificationsRepository } from "../modules/cars/repositories/SpecificationsRepository";
-import { CreateSpecificationService } from "../modules/cars/services/CreateSpecificationService";
+import { createSpecificationsController } from "../modules/cars/useCases/createSpecification";
 
 const specificationsRoutes = Router();
 
-const specificationsRepository = new SpecificationsRepository();
-
 specificationsRoutes.post("/", (req, res) => {
-  const { name, description } = req.body;
-  const createSpecificationsService = new CreateSpecificationService(
-    specificationsRepository
-  );
-
-  createSpecificationsService.execute({ name, description });
-
-  return res.status(201).send();
+  return createSpecificationsController.handle(req, res);
 });
 
 export { specificationsRoutes };
