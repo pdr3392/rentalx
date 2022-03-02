@@ -1,8 +1,8 @@
 import { Router } from "express";
 import multer from "multer";
-import createCategoryController from "../modules/cars/useCases/createCategory";
-import { importCategoryController } from "../modules/cars/useCases/importCategory";
-import { listCategoriesController } from "../modules/cars/useCases/listCategory";
+import { CreateCategoryController } from "../modules/cars/useCases/createCategory/CreateCategoryController";
+import { ImportCategoryController } from "../modules/cars/useCases/importCategory/ImportCategoryController";
+import { ListCategoriesController } from "../modules/cars/useCases/listCategory/ListCategoriesController";
 
 const upload = multer({
   dest: "./tmp",
@@ -11,16 +11,20 @@ const categoriesRoutes = Router();
 // const categoriesRepository = new PostgresCategoriesRepository();
 // Princípio de Substituição de Liskov
 
-categoriesRoutes.post("/", (req, res) => {
-  return createCategoryController().handle(req, res);
-});
+const createCategoryController = new CreateCategoryController();
 
-categoriesRoutes.get("/", (req, res) => {
-  return listCategoriesController.handle(req, res);
-});
+const importCategoryController = new ImportCategoryController();
 
-categoriesRoutes.post("/import", upload.single("file"), (req, res) => {
-  return importCategoryController.handle(req, res);
-});
+const listCategoriesController = new ListCategoriesController();
+
+categoriesRoutes.post("/", createCategoryController.handle);
+
+categoriesRoutes.get("/", listCategoriesController.handle);
+
+categoriesRoutes.post(
+  "/import",
+  upload.single("file"),
+  importCategoryController.handle
+);
 
 export { categoriesRoutes };
