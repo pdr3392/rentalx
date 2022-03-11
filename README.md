@@ -8,13 +8,12 @@
 
 **FR**
 
-Should be allowed to register a new car;
-Should be allowed to list all categories.
+The application should be able to register a new car;
+The application should be able to list all categories.
 
 **BR**
 
-Should not be allowed to register a car with an already taken license plate;
-Should not be allowed to change a registred car's license plate;
+The application should not be able to register a car with an already taken license plate;
 A new car should be registred as an available car by default;
 Only administrator users should be allowed to register a new car.
 
@@ -22,10 +21,10 @@ Only administrator users should be allowed to register a new car.
 
 **FR**
 
-Should be allowed to list the registred and available cars;
-Should be allowed to lii all available cars by categorie's name;
-Should be allowed to lii all available cars by brand's name;
-Should be allowed to lii all available cars by car's name.
+The application should be able to list the registred and available cars;
+The application should be able to list all available cars by categorie's name;
+The application should be able to list all available cars by brand's name;
+The application should be able to list all available cars by car's name.
 
 **BR**
 
@@ -35,26 +34,26 @@ Users without a valid session should be allowed to browse registred and availabl
 
 **FR**
 
-Should be allowed to register a car's specification;
-Should be allowed to list all specifications;
-Should be allowed to list all cars.
+The application should be able to register a car's specification;
+The application should be able to list all specifications;
+The application should be able to list all cars.
 
 **BR**
 
-Should not be allowed to register a specification for a non-registred car;
-Should not be allowed to register an already registered specification for a car;
+The application should not be able to register a specification for a non-registred car;
+The application should not be able to register an already registered specification for a car;
 Only administrator users should be allowed to register a new specification.
 
 #Car's image register
 
 **FR**
 
-Should be allowed to register a car's image;
-Should be allowed to list all cars.
+The application should be able to register a car's image;
+The application should be able to list all cars.
 
 **NFR**
 
-Utilizar o multer para upload dos arquivos.
+Use multer to upload files.
 
 **BR**
 
@@ -65,7 +64,7 @@ Only administrator users should be allowed to register a new car.
 
 **FR**
 
-Should be allowed to register a rental.
+The application should be able to register a rental.
 
 **BR**
 
