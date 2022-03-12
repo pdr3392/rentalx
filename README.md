@@ -35,8 +35,6 @@ Users without a valid session should be allowed to browse registred and availabl
 **FR**
 
 The application should be able to register a car's specification;
-The application should be able to list all specifications;
-The application should be able to list all cars.
 
 **BR**
 
@@ -49,7 +47,6 @@ Only administrator users should be allowed to register a new specification.
 **FR**
 
 The application should be able to register a car's image;
-The application should be able to list all cars.
 
 **NFR**
 
