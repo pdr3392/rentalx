@@ -68,3 +68,4 @@ The application should be able to register a rental.
 Rentals should have a minimal duration of one day;
 Users should have only one on going rental;
 Cars should have only one on going rental.
+User must be logged in.
