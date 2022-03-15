@@ -4,8 +4,8 @@ export default async (host = "database") => {
   const options = await getConnectionOptions();
 
   Object.assign(options, {
-    host: host,
-    database: "rentalx",
+    host: process.env.NODE_ENV === "test" ? "localhost" : host,
+    database: process.env.NODE_ENV === "test" ? "rentalx_test" : "rentalx",
   });
 
   return createConnection(options);

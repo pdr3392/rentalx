@@ -12,6 +12,8 @@
   },
   "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers"],
   "rules": {
+    "comma-dangle": 0,
+    "quotes": [2, "double", { "avoidEscape": true }],
     "camelcase": "off",
     "import/no-unresolved": "error",
     "@typescript-eslint/naming-convention": [
