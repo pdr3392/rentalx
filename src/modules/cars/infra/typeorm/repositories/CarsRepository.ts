@@ -1,6 +1,8 @@
+import { getRepository, Repository } from "typeorm";
+
 import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
-import { getRepository, Repository } from "typeorm";
+
 import { Car } from "../entities/Car";
 
 class CarsRepository implements ICarsRepository {
@@ -57,19 +59,19 @@ class CarsRepository implements ICarsRepository {
 
     if (brand) {
       carsQuery.andWhere("brand = :brand", {
-        brand: brand,
+        brand,
       });
     }
 
     if (name) {
       carsQuery.andWhere("name = :name", {
-        name: name,
+        name,
       });
     }
 
     if (category_id) {
       carsQuery.andWhere("category_id = :category_id", {
-        category_id: category_id,
+        category_id,
       });
     }
 
@@ -82,6 +84,16 @@ class CarsRepository implements ICarsRepository {
     const car = await this.repository.findOne(id);
 
     return car;
+  }
+
+  async updateAvailable(id: string, available: boolean): Promise<void> {
+    await this.repository
+      .createQueryBuilder()
+      .update()
+      .set({ available })
+      .where("id = :id")
+      .setParameters({ id })
+      .execute();
   }
 }
 
