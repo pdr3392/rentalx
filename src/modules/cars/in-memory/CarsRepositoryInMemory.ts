@@ -1,7 +1,8 @@
+import { v4 as uuidv4 } from "uuid";
+
 import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 
 import { ICreateCarDTO } from "../dtos/ICreateCarDTO";
-import { Category } from "../infra/typeorm/entities/Category";
 import { ICarsRepository } from "../repositories/ICarsRepository";
 
 class CarsRepositoryInMemory implements ICarsRepository {
@@ -15,7 +16,6 @@ class CarsRepositoryInMemory implements ICarsRepository {
     fine_amount,
     brand,
     category_id,
-    id,
   }: ICreateCarDTO): Promise<Car> {
     const car = new Car();
 
@@ -27,7 +27,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
       fine_amount,
       brand,
       category_id,
-      id,
+      id: uuidv4(),
     });
 
     this.cars.push(car);

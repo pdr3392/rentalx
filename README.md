@@ -86,3 +86,13 @@ When returning a rental, the total cost should be calculated
 If the time of returning is superior to the contracted time, a fine, proportional to the delay time, should be charged
 If there's a charge, it should be added to the total costs of the rental
 User must be logged in
+
+# List user's rentals
+
+**FR**
+
+The application should be able to search for all user's rentals
+
+**BR**
+
+The user must be logged in
