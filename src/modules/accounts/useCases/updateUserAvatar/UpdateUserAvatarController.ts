@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
+
 import { UpdateUserAvatarUseCase } from "./UpdateUserAvatarUseCase";
 
 class UpdateUserAvatarController {
@@ -12,7 +13,7 @@ class UpdateUserAvatarController {
 
     await updateUserAvatarUseCase.execute({
       user_id: id,
-      avatar_file: avatar_file,
+      avatar_file,
     });
 
     return res.status(200).send();
