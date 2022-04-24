@@ -96,3 +96,16 @@ The application should be able to search for all user's rentals
 **BR**
 
 The user must be logged in
+
+# Password Recovery
+
+**FR**
+
+The user should be able to recover his/her password by passing an e-mail
+The user should receive an e-mail message with instructions to recover his/her password
+The user must be able to set the new password
+
+**BR**
+
+The user must set a new password
+The url for recovery must expire within 3 hours
