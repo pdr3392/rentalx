@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import swaggerUi from "swagger-ui-express";
 import "express-async-errors";
 
@@ -22,14 +22,17 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(router);
 
-app.use((err: Error, req: Request, res: Response) => {
+app.use((err: Error, _: Request, res: Response, next: NextFunction) => {
   if (err instanceof AppError) {
-    return res.status(200).json({ message: err.message });
+    return res.status(err.statusCode).json({
+      status: "error",
+      message: err.message,
+    });
   }
 
   return res.status(500).json({
     status: "error",
-    message: `Internal server error - ${err.message}`,
+    message: `Internal server error -> ${err.message}`,
   });
 });
 
