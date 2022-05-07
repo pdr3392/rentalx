@@ -9,44 +9,45 @@ import {
   PrimaryColumn,
 } from "typeorm";
 import { v4 as uuidv4 } from "uuid";
+
 import { Category } from "./Category";
 import { Specification } from "./Specification";
 
 @Entity("cars")
 class Car {
   @PrimaryColumn()
-  id: string;
+    id: string;
 
   @Column()
-  name: string;
+    name: string;
 
   @Column()
-  description: string;
+    description: string;
 
   @Column()
-  daily_rate: number;
+    daily_rate: number;
 
   @Column()
-  available: boolean;
+    available: boolean;
 
   @Column()
-  license_plate: string;
+    license_plate: string;
 
   @Column()
-  fine_amount: number;
+    fine_amount: number;
 
   @Column()
-  brand: string;
+    brand: string;
 
   @CreateDateColumn()
-  created_at: Date;
+    created_at: Date;
 
   @ManyToOne(() => Category)
   @JoinColumn({ name: "category_id" })
-  category: Category;
+    category: Category;
 
   @Column()
-  category_id: string;
+    category_id: string;
 
   @ManyToMany(() => Specification)
   @JoinTable({
@@ -54,7 +55,7 @@ class Car {
     joinColumns: [{ name: "car_id" }],
     inverseJoinColumns: [{ name: "specification_id" }],
   })
-  specifications: Specification[];
+    specifications: Specification[];
 
   constructor() {
     if (!this.id) {
