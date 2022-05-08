@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import fs from "fs";
 import handlebars from "handlebars";
 import nodemailer, { Transporter } from "nodemailer";
@@ -7,7 +8,7 @@ import { IMailProvider } from "../IMailProvider";
 
 @injectable()
 class EtherealMailProvider implements IMailProvider {
-  constructor(private client?: Transporter) {
+  constructor(private client: Transporter) {
     if (!this.client) {
       nodemailer
         .createTestAccount()
@@ -31,6 +32,7 @@ class EtherealMailProvider implements IMailProvider {
   async sendMail(
     to: string,
     subject: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     variables: any,
     path: string
   ): Promise<void> {
